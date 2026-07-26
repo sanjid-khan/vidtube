@@ -18,6 +18,16 @@ app.use(express.urlencoded({extended:true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser());
 
+
+app.get("/", (req, res) => {
+    res.json({
+        message: "Welcome to VidTube API Server! 🚀",
+        healthcheck: "/api/v1/healthcheck"
+    });
+});
+
+
+
 // import routes
 import healthcheckRouter from "./routes/healthcheck.routes.js"
 import userRouter from "./routes/user.routes.js"
